@@ -1,3 +1,5 @@
+tmp/
+R/ruhu-ebird-observations_cache/
 # History files
 .Rhistory
 .Rapp.history
