@@ -1,0 +1,147 @@
+---
+output:
+  github_document:
+    html_preview: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.height = 3.5,
+                      fig.width = 5, fig.align = 'center',
+                      warning = FALSE, message = FALSE,
+                      cache = TRUE)
+
+library(rebird) #get eBird data from the web
+library(dplyr) #data munging
+library(purrr) #map() for looping
+library(ggplot2) #plotting
+library(stringr) #clean you variables
+library(lubridate) #make date data dates
+library(tidyr) #separate month and quarter
+library(rphylopic) #for image, package from GitHub
+library(curl) #required by rphylopic function
+```
+
+# Where are the Rufus Hummingbirds?
+
+<img src = "../images/vnhs_ruhu_tweet.png" width = "500"></img>
+
+When I saw the above analysis by my friend [Dave Fraser](https://twitter.com/DavidFFraser), I thought `r emo::ji("thought")`:
+
+- cool analysis!
+- citizen science + [eBird](https://ebird.org/science/download-ebird-data-products) is awesome!
+- have I seen a Rufus Hummingbirds lately? `r emo::ji("bird")`
+
+_and then I thought_  
+
+- maybe I could do that in R? `r emo::ji("idea")`
+
+And then I did.
+
+## Getting the [eBird](https://ebird.org/science/download-ebird-data-products) data
+
+You can get up-to-date eBird data via the eBird website GUI, but I was hoping to include more years and didn't want to click that often. The full data object is available for download, but is updated quarterly&mdash;so unlikely to have the very records I am after. Sigh `r emo::ji("disappointed")`.
+
+And then I talked to [Andy Teucher](https://github.com/ateucher) about my data troubles. He introduced me to the [rOpenSci](https://ropensci.org/) [R](https://www.r-project.org/) `r emo::ji("package")` [`rebird`](https://cran.r-project.org/web/packages/rebird/index.html)&mdash;he is a coauthor! `r emo::ji("+1")`
+
+The [`rebird`](https://cran.r-project.org/web/packages/rebird/index.html) `r emo::ji("package")` gets the eBird data from the web and provides it in a tidy format. `r emo::ji("present")`
+
+I started with getting A LOT of data, 50 years seemed good.
+
+```{r get-data}
+library(rebird) #get eBird data from the web
+library(dplyr) #data munging
+library(purrr) #map() for looping
+
+#function to get eBird data for many states/provinces using rebird R package
+map_state <-  function(state) {
+  map_dfr(1968:2018, ~ {
+    ebirdfreq("states", state, .x, .x, 1, 5) %>% 
+      filter(comName == "Rufous Hummingbird") %>% 
+      mutate(year = .x, state = state)
+  })  
+}
+ 
+#get eBird data for west coast state/provinces 
+ruhu_raw <- map_dfr(c("CA-BC","US-CA","US-WA", "US-OR"), ~ {
+      map_state(.x)
+})
+
+#save data object in tmp folder
+if (!exists("tmp")) dir.create("tmp", showWarnings = FALSE)
+save(ruhu_raw, file = "tmp/ruhu_raw.RData")
+
+head(ruhu_raw)
+
+```
+
+## Some Data Cleaning 
+
+The data is very tidy, however we need to do something with the monthQt variable. This needs to be a date for plotting.
+
+
+```{r clean-data}
+library(stringr) #clean you variables
+library(lubridate) #make date data dates
+library(tidyr) #separate month and quarter
+
+ruhu_clean <- ruhu_raw %>% 
+  separate(monthQt, c("month", "week"), sep = "-") %>%
+   mutate(day = case_when(
+    week == 1 ~ 1,
+    week == 2 ~ 8,
+    week == 3 ~ 15,
+    week == 4 ~ 23
+  )) %>%
+  mutate(date = ymd(paste0(year, "-",month,"-",day))) %>% 
+  mutate(week = lubridate::week(date)) %>% 
+  filter(sampleSize != 0) 
+
+head(ruhu_clean)
+```
+
+Let's have a quick look at what we have, starting just with British Columbia `r emo::ji("eyes")`.
+
+```{r}
+library(ggplot2) #plotting
+
+ruhu_clean %>% 
+  filter(state == "CA-BC") %>%  #just B.C.
+ggplot(aes(x = week, y = frequency, group = year)) +
+  geom_line(colour = "grey") +
+  theme_minimal()
+
+```
+
+There is A LOT of very high frequency values in the data (frequency = 1.0), which is a bit puzzling. Let's colour by year?
+
+```{r}
+
+ruhu_clean %>% 
+  filter(state == "CA-BC") %>%  #just B.C.
+ggplot(aes(x = week, y = frequency, group = year)) +
+  geom_line(aes(colour = year)) +
+  theme_minimal()
+
+```
+
+Hmmm. This shows that most of that puzzling data is OLDER. Andy$mdash;a birder and frequent data provider to eBird&mdash;suggested that since eBird started in 2002 the analysis could focus on that time period? The older records are being entered by birders going through checklists and notebooks, super useful data, however perhaps not as complete as data since 2002&mdash; when birders started entering sightings on theor smartphones? I think this is a reasonable approach.
+
+```{r filter}
+
+ruhu_since_2002 <- ruhu_clean %>% 
+  filter(year > 2001) 
+
+
+ruhu_since_2002 %>% 
+  filter(state == "CA-BC") %>%  #just B.C.
+ggplot(aes(x = week, y = frequency, group = year)) +
+  geom_line(aes(colour = year)) +
+  theme_minimal()
+
+```
+
+Looks better! `r emo::ji("eyes")`
+
+## Design a Plot
+
+So I want to compare 2018 observation frequency against previous years. 
