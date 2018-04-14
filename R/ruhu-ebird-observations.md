@@ -162,10 +162,10 @@ ruhu_since_2002 %>%
   filter(state == "CA-BC") %>% 
   ggplot(aes(x = week, y = frequency, group = year)) +
   geom_line(aes(colour = "grey"),  alpha = .5) +
-  geom_line(data = df_bc_2018, aes(colour = "#EA7D28")) +
+  geom_line(data = df_bc_2018, aes(colour = "#99000d")) +
   scale_colour_manual(name=NULL,
                       labels=c("2018", "2002-2017"),
-                      values=c("#EA7D28", "grey")) +
+                      values=c("#99000d", "grey")) +
   theme_minimal()
 ```
 
@@ -183,11 +183,11 @@ df_2018 <- ruhu_since_2002 %>%
 ruhu_since_2002 %>% 
   ggplot(aes(x = week, y = frequency, group = year)) +
   geom_line(aes(colour = "grey"),  alpha = .5) +
-  geom_line(data = df_2018, aes(colour = "#EA7D28")) +
+  geom_line(data = df_2018, aes(colour = "#99000d")) +
   facet_wrap(~ state, ncol=1) +
   scale_colour_manual(name=NULL,
                       labels=c("2018", "2002-2017"),
-                      values=c("#EA7D28", "grey")) +
+                      values=c("#99000d", "grey")) +
   theme_minimal()
 ```
 
@@ -213,11 +213,11 @@ df_2018 <- ruhu_since_2002 %>%
 ruhu_since_2002 %>% 
   ggplot(aes(x = week, y = frequency, group = year)) +
   geom_line(aes(colour = "grey"),  alpha = .5) +
-  geom_line(data = df_2018, aes(colour = "#EA7D28")) +
+  geom_line(data = df_2018, aes(colour = "#99000d")) +
   facet_wrap(~ state, ncol=1) +
   scale_colour_manual(name=NULL,
                       labels=c("2018", "2002-2017"),
-                      values=c("#EA7D28", "grey")) +
+                      values=c("#99000d", "grey")) +
   theme_minimal()
 ```
 
