@@ -151,7 +151,7 @@ Looks 👀 better!
 How Do 2018 🐦 Observation Frequencies Compare with Historical Data?
 -------------------------------------------------------------------
 
-Let's use some colour to distinguish the 2018 data from the previous year observation frequencies.
+Let's use some colour to distinguish the 2018 data from the 2002-2017 observation frequencies.
 
 ``` r
 #make a small df with just 2018 data
