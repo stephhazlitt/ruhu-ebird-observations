@@ -131,7 +131,7 @@ ruhu_clean %>%
 
 <img src="ruhu-ebird-observations_files/figure-markdown_github/colour-years-1.png" style="display: block; margin: auto;" />
 
-Hmmmmm...this shows that most of that puzzling data is pre-2000s. Andy—a birder and contributor to eBird—mentioned that maybe the older records are being entered by birders going through past checklists & field notebooks. eBird launched in 2002, with birders able to enter observations instantly via smartphones. Filtering out the pre-2002 data seems like a reasonable approach?
+Hmmmmm...this shows that most of that puzzling data is pre-2000s. eBird launched in 2002, with birders able to enter observations instantly via smartphones. Andy—a birder and contributor to eBird—mentioned that maybe the older records are being entered by birders going through past checklists & field notebooks.Filtering out the pre-2002 data seems like a reasonable approach?
 
 ``` r
 ruhu_since_2002 <- ruhu_clean %>% 
@@ -162,10 +162,10 @@ ruhu_since_2002 %>%
   filter(state == "CA-BC") %>% 
   ggplot(aes(x = week, y = frequency, group = year)) +
   geom_line(aes(colour = "grey"),  alpha = .5) +
-  geom_line(data = df_bc_2018, aes(colour = "#99000d")) +
+  geom_line(data = df_bc_2018, aes(colour = "red")) +
   scale_colour_manual(name=NULL,
-                      labels=c("2018", "2002-2017"),
-                      values=c("#99000d", "grey")) +
+                      labels=c("2002-2017", "2018"),
+                      values=c("grey", "red")) +
   theme_minimal()
 ```
 
@@ -183,11 +183,11 @@ df_2018 <- ruhu_since_2002 %>%
 ruhu_since_2002 %>% 
   ggplot(aes(x = week, y = frequency, group = year)) +
   geom_line(aes(colour = "grey"),  alpha = .5) +
-  geom_line(data = df_2018, aes(colour = "#99000d")) +
+  geom_line(data = df_2018, aes(colour = "red")) +
   facet_wrap(~ state, ncol=1) +
   scale_colour_manual(name=NULL,
-                      labels=c("2018", "2002-2017"),
-                      values=c("#99000d", "grey")) +
+                      labels=c("2002-2017", "2018"),
+                      values=c("grey", "red")) +
   theme_minimal()
 ```
 
@@ -213,11 +213,11 @@ df_2018 <- ruhu_since_2002 %>%
 ruhu_since_2002 %>% 
   ggplot(aes(x = week, y = frequency, group = year)) +
   geom_line(aes(colour = "grey"),  alpha = .5) +
-  geom_line(data = df_2018, aes(colour = "#99000d")) +
+  geom_line(data = df_2018, aes(colour = "red")) +
   facet_wrap(~ state, ncol=1) +
   scale_colour_manual(name=NULL,
-                      labels=c("2018", "2002-2017"),
-                      values=c("#99000d", "grey")) +
+                      labels=c("2002-2017", "2018"),
+                      values=c("grey", "red")) +
   theme_minimal()
 ```
 
@@ -247,15 +247,15 @@ ruhu_since_2002 %>%
   filter(state == "CA-BC") %>% 
   ggplot(aes(x = week, y = frequency, group = year)) +
   geom_line(aes(colour = "grey"),  alpha = .5) +
-  geom_line(data = df_bc_2018, aes(colour = "#EA7D28")) +
+  geom_line(data = df_bc_2018, aes(colour = "orange3")) +
   scale_colour_manual(name=NULL,
-                      labels=c("2018", "2002-2017"),
-                      values=c("#EA7D28", "grey")) +
+                      labels=c("2002-2017", "2018"),
+                      values=c("grey", "orange3")) +
   labs(title = "Frequency of Rufus Hummingbird Observations\nin British Columbia (2002-2018)",
        caption = "Data from eBird") +
   theme_minimal() +
   theme(legend.position = c(0.15, 0.3)) +
-  add_phylopic(hummer, alpha = .7, color = "#EA7D28", ysize = 7, x = 45, y = .3)
+  add_phylopic(hummer, alpha = .7, color = "orange3", ysize = 7, x = 45, y = .3)
 ```
 
 <img src="ruhu-ebird-observations_files/figure-markdown_github/nice-bc-plot-1.png" style="display: block; margin: auto;" />
@@ -277,16 +277,16 @@ df_2018 <- ruhu_since_2002 %>%
 ruhu_since_2002 %>% 
   ggplot(aes(x = week, y = frequency, group = year)) +
   geom_line(aes(colour = "grey"),  alpha = .5) +
-  geom_line(data = df_2018, aes(colour = "#EA7D28")) +
+  geom_line(data = df_2018, aes(colour = "orange3")) +
   facet_wrap(~ state, ncol=1) +
   scale_colour_manual(name=NULL,
-                      labels=c("2018", "2002-2017"),
-                      values=c("#EA7D28", "grey")) +
+                      labels=c("2002-2017", "2018"),
+                      values=c("grey", "orange3")) +
   labs(title = "Frequency of Rufus Hummingbird Observations\nAlong the Pacific Coast (2002-2018)",
        caption = "Data from eBird") +
   theme_minimal() +
   theme(legend.position = "bottom") +
-  add_phylopic(hummer, alpha = .7, color = "#EA7D28", ysize = 3, x = 45, y = .3)
+  add_phylopic(hummer, alpha = .7, color = "orange3", ysize = 3, x = 45, y = .3)
 ```
 
 <img src="ruhu-ebird-observations_files/figure-markdown_github/nice-wc-plot-1.png" style="display: block; margin: auto;" />
