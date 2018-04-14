@@ -22,7 +22,7 @@ library(rphylopic) #for image, package from GitHub
 library(curl) #required by rphylopic function
 ```
 
-# Where are the Rufus Hummingbirds?
+# Where aRe the Rufus Hummingbirds?
 
 <img src = "../images/vnhs_ruhu_tweet.png" width = "500"></img>
 

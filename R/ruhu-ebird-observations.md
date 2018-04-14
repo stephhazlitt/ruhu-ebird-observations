@@ -1,5 +1,5 @@
 
-Where are the Rufus Hummingbirds?
+Where aRe the Rufus Hummingbirds?
 =================================
 
 <img src = "../images/vnhs_ruhu_tweet.png" width = "500"></img>
@@ -50,16 +50,6 @@ ruhu_raw <- map_dfr(c("CA-BC","US-CA","US-WA", "US-OR"), ~ {
 
 head(ruhu_raw)
 ```
-
-    ## # A tibble: 6 x 6
-    ##   comName            monthQt    frequency sampleSize  year state
-    ##   <chr>              <chr>          <dbl>      <dbl> <int> <chr>
-    ## 1 Rufous Hummingbird January-1         0.        14.  1968 CA-BC
-    ## 2 Rufous Hummingbird January-2         0.         9.  1968 CA-BC
-    ## 3 Rufous Hummingbird January-3         0.        11.  1968 CA-BC
-    ## 4 Rufous Hummingbird January-4         0.        14.  1968 CA-BC
-    ## 5 Rufous Hummingbird February-1        0.        15.  1968 CA-BC
-    ## 6 Rufous Hummingbird February-2        0.        14.  1968 CA-BC
 
 The eBird data provided by [`rebird`](https://cran.r-project.org/web/packages/rebird/index.html) is indeed very tidy. 🎁 Let's take a moment to cheers the [authors of and contributers to](https://github.com/ropensci/rebird/graphs/contributors) this open source R package. 🎉
 
