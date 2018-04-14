@@ -131,7 +131,7 @@ ruhu_clean %>%
 
 <img src="ruhu-ebird-observations_files/figure-markdown_github/colour-years-1.png" style="display: block; margin: auto;" />
 
-Hmmmmm...this shows that most of that puzzling data is pre-2000s. eBird launched in 2002, with birders able to enter observations instantly via smartphones. Andy—a birder and contributor to eBird—mentioned that maybe the older records are being entered by birders going through past checklists & field notebooks.Filtering out the pre-2002 data seems like a reasonable approach?
+Hmmmmm...this shows that most of that puzzling data is pre-2000s. eBird launched in 2002, with birders able to enter observations instantly via smartphones. Andy—a birder and contributor to eBird—mentioned that maybe the older records are being entered by birders going through past checklists & field notebooks. Filtering out the pre-2002 data seems like a reasonable approach?
 
 ``` r
 ruhu_since_2002 <- ruhu_clean %>% 
