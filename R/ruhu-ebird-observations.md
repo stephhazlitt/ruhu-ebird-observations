@@ -1,6 +1,6 @@
 
-Where aRe the Rufus Hummingbirds?
-=================================
+Where aRe the Rufous Hummingbirds?
+==================================
 
 <img src = "../images/vnhs_ruhu_tweet.png" width = "500"></img>
 
@@ -8,7 +8,7 @@ When I saw the above analysis by my friend [Dave Fraser](https://twitter.com/Dav
 
 -   cool analysis!
 -   citizen science + [eBird](https://ebird.org/) is awesome!
--   have I seen a Rufus Hummingbird 🐦 lately?
+-   have I seen a Rufous Hummingbird 🐦 lately?
 
 and *then* I thought ...
 
@@ -119,7 +119,7 @@ ruhu_clean %>%
 
 <img src="ruhu-ebird-observations_files/figure-markdown_github/pre-viz-1.png" style="display: block; margin: auto;" />
 
-There seems to be a lot of very high frequency values in the data set (frequency = 1.0), which is a bit puzzling—all the birds observed were Rufus Hummingbirds ❓. Let's colour the lines for each year—using a continuous colour scale—to see if we learn something.
+There seems to be a lot of very high frequency values in the data set (frequency = 1.0), which is a bit puzzling—all the birds observed were Rufous Hummingbirds ❓. Let's colour the lines for each year—using a continuous colour scale—to see if we learn something.
 
 ``` r
 ruhu_clean %>% 
@@ -171,7 +171,7 @@ ruhu_since_2002 %>%
 
 <img src="ruhu-ebird-observations_files/figure-markdown_github/bc-plot-1.png" style="display: block; margin: auto;" />
 
-This plot confirms the original analysis with the first 2018 Rufus Hummingbird observations later than most years since 2002. However, the rate of increase in observation frequency seems to be similar.
+This plot confirms the original analysis with the first 2018 Rufous Hummingbird observations later than most years since 2002. However, the rate of increase in observation frequency seems to be similar.
 
 Let's look at all the Pacific Coast data now?
 
@@ -225,9 +225,9 @@ ruhu_since_2002 %>%
 
 Looks 👀 better!
 
-And again, the plot confirms the original analysis—first observations are later and frequencies are lower for Rufus Hummingbirds, especially in Oregon, Washingtion and British Columbia.
+And again, the plot confirms the original analysis—first observations are later and frequencies are lower for Rufous Hummingbirds, especially in Oregon, Washingtion and British Columbia.
 
-Let's finish up with some window dressing for our plots, adding the usual suspects like a title and data attribution, and adding a nice silhouette of a hummingbird using the `rphylopic` R package 📦. Andy even suggested using the Rufus colour—💯.
+Let's finish up with some window dressing for our plots, adding the usual suspects like a title and data attribution, and adding a nice silhouette of a hummingbird using the `rphylopic` R package 📦. Andy even suggested using the rufous colour—💯.
 
 So final plot for **British Columbia**:
 
@@ -251,7 +251,7 @@ ruhu_since_2002 %>%
   scale_colour_manual(name=NULL,
                       labels=c("2002-2017", "2018"),
                       values=c("grey", "orange3")) +
-  labs(title = "Frequency of Rufus Hummingbird Observations\nin British Columbia (2002-2018)",
+  labs(title = "Frequency of Rufous Hummingbird Observations\nin British Columbia (2002-2018)",
        caption = "Data from eBird") +
   theme_minimal() +
   theme(legend.position = c(0.15, 0.3)) +
@@ -282,7 +282,7 @@ ruhu_since_2002 %>%
   scale_colour_manual(name=NULL,
                       labels=c("2002-2017", "2018"),
                       values=c("grey", "orange3")) +
-  labs(title = "Frequency of Rufus Hummingbird Observations\nAlong the Pacific Coast (2002-2018)",
+  labs(title = "Frequency of Rufous Hummingbird Observations\nAlong the Pacific Coast (2002-2018)",
        caption = "Data from eBird") +
   theme_minimal() +
   theme(legend.position = "bottom") +
@@ -291,13 +291,13 @@ ruhu_since_2002 %>%
 
 <img src="ruhu-ebird-observations_files/figure-markdown_github/nice-wc-plot-1.png" style="display: block; margin: auto;" />
 
-OK, I know. The silhouette is *not* a Rufus Hummingbird. It is a *Topazza pella*—the Crimson Topaz—the only hummingbird image in the [phylopic library](http://phylopic.org/name/11887b47-ae28-4389-aaf8-16e204197b5b). At least it is a hummingbird?
+OK, I know. The silhouette is *not* a Rufous Hummingbird. It is a *Topazza pella*—the Crimson Topaz—the only hummingbird image in the [phylopic library](http://phylopic.org/name/11887b47-ae28-4389-aaf8-16e204197b5b). At least it is a hummingbird?
 
-For more on Rufus Hummingbirds (*Selasphorus rufus*), you can read the [species account in the The Birds of North America series](https://birdsna.org/Species-Account/bna/species/rufhum/introduction).
+For more on Rufous Hummingbirds (*Selasphorus rufus*), you can read the [species account in the The Birds of North America series](https://birdsna.org/Species-Account/bna/species/rufhum/introduction).
 
 For keeping up with cool nature stuff in Victoria, British Columbia, you can follow the [Victoria Natural History Society twitter feed](https://twitter.com/VictoriaNHS).
 
-If you see 👀 a Rufus Hummingbird, you can add your observation to [eBird](https://ebird.org/).
+If you see 👀 a Rufous Hummingbird, you can add your observation to [eBird](https://ebird.org/).
 
 <br>
 
@@ -308,7 +308,7 @@ Using open source software and switching to 'coding' my data analyses is about t
 
 <img src = "../images/tabranch_tweet.png" width = "500"></img>
 
-Now, actually *opening* my own code makes me feel vulnerable 😨. What if the approach is wrong? What if my code is dreadful? I push past the nerves—mostly—and have found that the dialogue from being open makes the resulting work, and my code, much better. Even for this just-for-fun 👀 look at Rufus Hummingbirds!
+Now, actually *opening* my own code makes me feel vulnerable 😨. What if the approach is wrong? What if my code is dreadful? I push past the nerves—mostly—and have found that the dialogue from being open makes the resulting work, and my code, much better. Even for this just-for-fun 👀 look at Rufous Hummingbirds!
 
 <img src = "../images/more_tweets.png" width = "500"></img>
 
@@ -330,7 +330,7 @@ ruhu_since_2002 %>%
   scale_colour_manual(name=NULL,
                       labels=c("2002-2017", "2018"),
                       values=c("grey", "orange3")) +
-  labs(title = "Frequency of Rufus Hummingbird Observations\nin British Columbia (2002-2018)",
+  labs(title = "Frequency of Rufous Hummingbird Observations\nin British Columbia (2002-2018)",
        caption = "Data from eBird") +
   theme_minimal() +
   theme(legend.position = c(0.15, 0.3)) +
@@ -359,7 +359,7 @@ ruhu_since_2002 %>%
   scale_colour_manual(name=NULL,
                       labels=c("2002-2017", "2018"),
                       values=c("grey", "orange3")) +
-  labs(title = "Frequency of Rufus Hummingbird Observations\nAlong the Pacific Coast (2002-2018)",
+  labs(title = "Frequency of Rufous Hummingbird Observations\nAlong the Pacific Coast (2002-2018)",
        caption = "Data from eBird") +
   theme_minimal() +
   theme(legend.position = "bottom") +

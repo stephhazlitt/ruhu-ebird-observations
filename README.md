@@ -1,6 +1,6 @@
 
-Exploring patterns of observation frequency of Rufus Hummingbirds along the Pacific Coast
------------------------------------------------------------------------------------------
+Exploring patterns of observation frequency of Rufous Hummingbirds along the Pacific Coast
+------------------------------------------------------------------------------------------
 
 Data is sourced from [eBird](https://ebird.org/science/download-ebird-data-products) using the [rOpenSci](https://ropensci.org/) [R](https://www.r-project.org/) 📦 [`rebird`](https://cran.r-project.org/web/packages/rebird/index.html).
 
