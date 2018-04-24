@@ -1,4 +1,7 @@
 
+<!-- 
+This file is licensed with the Creative Commons Attribution 4.0 International License. 
+-->
 Where aRe the Rufous Hummingbirds?
 ==================================
 
@@ -301,69 +304,14 @@ If you see 👀 a Rufous Hummingbird, you can add your observation to [eBird](ht
 
 <br>
 
-ADDENDUM: Sharing My Code Makes Me Both 😨 & 😃
----------------------------------------------
+#### ADDENDUM: AUK & a better hummingbird image
 
-Using open source software and switching to 'coding' my data analyses is about two things for me—I believe in open science *and* it takes me many, many tries before I get things just right, or what he said...
+<img src = "../images/phylopic_tweet.png" width = "500"></img>
 
-<img src = "../images/tabranch_tweet.png" width = "500"></img>
+If you want to wrangle the [full eBird data set](https://ebird.org/science/download-ebird-data-products), you might want to check out the [R](https://www.r-project.org/) package 📦 [`AUK`](https://cran.r-project.org/web/packages/auk/index.html), also recently onboarded at [rOpenSci](https://ropensci.org/).
 
-Now, actually *opening* my own code makes me feel vulnerable 😨. What if the approach is wrong? What if my code is dreadful? I push past the nerves—mostly—and have found that the dialogue from being open makes the resulting work, and my code, much better. Even for this just-for-fun 👀 look at Rufous Hummingbirds!
-
-<img src = "../images/more_tweets.png" width = "500"></img>
-
-So, final, final plots, with improved hummingbird image 😄.
-
-``` r
-## add image
-better_hummer <- image_data("6da653ca-1baa-4852-b9db-aff15404cbf7", size = "512")[[1]]
-
-#make a small df with just 2018 data
-df_bc_2018 <- ruhu_since_2002 %>% 
-  filter(state == "CA-BC", year == 2018) 
-
-ruhu_since_2002 %>% 
-  filter(state == "CA-BC") %>% 
-  ggplot(aes(x = week, y = frequency, group = year)) +
-  geom_line(aes(colour = "grey"),  alpha = .5) +
-  geom_line(data = df_bc_2018, aes(colour = "orange3")) +
-  scale_colour_manual(name=NULL,
-                      labels=c("2002-2017", "2018"),
-                      values=c("grey", "orange3")) +
-  labs(title = "Frequency of Rufous Hummingbird Observations\nin British Columbia (2002-2018)",
-       caption = "Data from eBird") +
-  theme_minimal() +
-  theme(legend.position = c(0.15, 0.3)) +
-  add_phylopic(better_hummer, alpha = .7, color = "orange3", ysize = 7, x = 45, y = .3)
-```
+And thanks to the above tweet from [phylopic](https://twitter.com/PhyloPic), we have a final, final set of plots with an improved hummingbird image 😄.
 
 <img src="ruhu-ebird-observations_files/figure-markdown_github/final-bc-plot-1.png" style="display: block; margin: auto;" />
-
-``` r
-#order for facet plotting
-wc_order <- c("CA-BC","US-WA","US-OR","US-CA")
-
-#make state a factor and order for facet plotting
-ruhu_since_2002 <- ruhu_since_2002 %>% 
-  mutate(state = factor(state, levels = wc_order))
-
-#make a small df with just 2018 data
-df_2018 <- ruhu_since_2002 %>% 
-  filter(year == 2018) 
-
-ruhu_since_2002 %>% 
-  ggplot(aes(x = week, y = frequency, group = year)) +
-  geom_line(aes(colour = "grey"),  alpha = .5) +
-  geom_line(data = df_2018, aes(colour = "orange3")) +
-  facet_wrap(~ state, ncol=1) +
-  scale_colour_manual(name=NULL,
-                      labels=c("2002-2017", "2018"),
-                      values=c("grey", "orange3")) +
-  labs(title = "Frequency of Rufous Hummingbird Observations\nAlong the Pacific Coast (2002-2018)",
-       caption = "Data from eBird") +
-  theme_minimal() +
-  theme(legend.position = "bottom") +
-  add_phylopic(better_hummer, alpha = .7, color = "orange3", ysize = 3, x = 45, y = .3)
-```
 
 <img src="ruhu-ebird-observations_files/figure-markdown_github/final-wc-plot-1.png" style="display: block; margin: auto;" />

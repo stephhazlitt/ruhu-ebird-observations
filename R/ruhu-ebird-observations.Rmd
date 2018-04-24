@@ -4,6 +4,10 @@ output:
     html_preview: true
 ---
 
+<!-- 
+This file is licensed with the Creative Commons Attribution 4.0 International License. 
+-->
+
 ```{r setup, include=FALSE}
 
 knitr::opts_chunk$set(echo = TRUE, fig.height = 6,
@@ -304,19 +308,15 @@ If you see `r emo::ji("eyes")` a Rufous Hummingbird, you can add your observatio
 
 <br>
 
-## ADDENDUM: Sharing My Code Makes Me Both `r emo::ji("fearful")` & `r emo::ji("smiley")`
+#### ADDENDUM: AUK & a better hummingbird image
 
-Using open source software and switching to 'coding' my data analyses is about two things for me&mdash;I believe in open science _and_ it takes me many, many tries before I get things just right, or what he said...
+<img src = "../images/phylopic_tweet.png" width = "500"></img>
 
-<img src = "../images/tabranch_tweet.png" width = "500"></img>
+If you want to wrangle the [full eBird data set](https://ebird.org/science/download-ebird-data-products), you might want to check out the [R](https://www.r-project.org/) package `r emo::ji("package")` [`AUK`](https://cran.r-project.org/web/packages/auk/index.html), also recently onboarded at [rOpenSci](https://ropensci.org/). 
 
-Now, actually _opening_ my own code makes me feel vulnerable `r emo::ji("fearful")`. What if the approach is wrong? What if my code is dreadful? I push past the nerves&mdash;mostly&mdash;and have found that the dialogue from being open makes the resulting work, and my code, much better. Even for this just-for-fun `r emo::ji("eyes")` look at Rufous Hummingbirds!
+And thanks to the above tweet from [phylopic](https://twitter.com/PhyloPic), we have a final, final set of plots with an improved hummingbird image `r emo::ji("smile")`.
 
-<img src = "../images/more_tweets.png" width = "500"></img>
-
-So, final, final plots, with improved hummingbird image `r emo::ji("smile")`.
-
-```{r final-bc-plot}
+```{r final-bc-plot, echo=FALSE}
 
 ## add image
 better_hummer <- image_data("6da653ca-1baa-4852-b9db-aff15404cbf7", size = "512")[[1]]
@@ -341,7 +341,7 @@ ruhu_since_2002 %>%
 
 ```
 
-```{r final-wc-plot, fig.height = 8}
+```{r final-wc-plot, fig.height = 8, echo=FALSE}
 
 #order for facet plotting
 wc_order <- c("CA-BC","US-WA","US-OR","US-CA")
