@@ -231,7 +231,7 @@ ruhu_since_2002 %>%
 
 Looks `r emo::ji("eyes")` better! 
 
-And again, the plot confirms the original analysis&mdash;first observations are later and frequencies are lower for Rufous Hummingbirds, especially in Oregon, Washingtion and British Columbia.
+And again, the plot confirms the original analysis&mdash;first observations are later and frequencies are lower for Rufous Hummingbirds, especially in Oregon, Washington and British Columbia.
 
 Let's finish up with some window dressing for our plots, adding the usual suspects like a title and data attribution, and adding a nice silhouette of a hummingbird using the `rphylopic` R package `r emo::ji("package")`. Andy even suggested using the rufous colour&mdash;`r emo::ji("perfect")`.
 
